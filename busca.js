@@ -1,3 +1,9 @@
+Array.prototype.contains = function (element) {
+  for (var i = 0; i < this.length; i++) if (element === this[i]) return true;
+
+  return false;
+};
+
 //Busca em largura
 function bfs(tree, start, destiny) {
   var queue = [],
@@ -24,6 +30,10 @@ function bfs(tree, start, destiny) {
           if (!viewed.contains(i)) if (!queue.contains(i)) queue.push(i);
         }
       }
+      console.log("Queue:", queue);
+      console.log("viewed:", viewed);
+      console.log("current:", current);
+      console.log("-----------------------------------");
     }
   }
 }
@@ -62,6 +72,10 @@ function dfs(tree, start, destiny) {
           }
         }
       }
+      console.log("stack:", stack);
+      console.log("viewed:", viewed);
+      console.log("current:", current);
+      console.log("-----------------------------------");
     }
 
     if (!foundNodes) stack.pop();
