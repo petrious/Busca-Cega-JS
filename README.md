@@ -65,6 +65,3 @@ Feito com ❤️ por Petrious 👋🏽 Entre em contato!
 
 </div>
 
-Abra o arquivo Index.html
-
-Logo em seguida abra o devtools do seu browser e navegue até a aba console.
