@@ -11,20 +11,22 @@
     <script src="busca.js"></script>
     <script>
       var tree = [
-        { value: 6, left: 1, right: 2 },
-        { value: 5, left: 3, right: 4 },
-        { value: 7, left: null, right: 5 },
-        { value: 3, left: 6, right: null },
-        { value: 4, left: null, right: null },
-        { value: 9, left: 7, right: 8 },
-        { value: 2, left: 9, right: null },
-        { value: 8, left: null, right: null },
-        { value: 10, left: null, right: null },
-        { value: 1, left: null, right: null },
+        [0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1],
+        [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0],
       ];
 
-      bfs(tree, 10);
-      dfs(tree, 7);
+      bfs(tree, 0, 6);
+      dfs(tree, 0, 3);
     </script>
   </body>
 </html>

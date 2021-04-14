@@ -1,51 +1,69 @@
 //Busca em largura
-function bfs(tree, value) {
-  var queue = [];
+function bfs(tree, start, destiny) {
+  var queue = [],
+    viewed = [],
+    current;
 
-  queue.push(tree[0]);
-  while (queue.length !== 0) {
-    for (let i = 0; i < queue.length; i++) {
-      var node = queue.shift();
+  queue.push(start);
 
-      if (node.value === value) {
-        return node;
+  while (queue.length > 0) {
+    current = queue.shift();
+    viewed.push(current);
+
+    for (var i = 0; i < tree.length; i++) {
+      if (tree[current][i] == 1) {
+        if (i == destiny) {
+          viewed.push(i);
+
+          return {
+            viewed: viewed,
+            start: start,
+            destiny: destiny,
+          };
+        } else {
+          if (!viewed.contains(i)) if (!queue.contains(i)) queue.push(i);
+        }
       }
-      if (node.left) {
-        queue.push(tree[node.left]);
-      }
-      if (node.right) {
-        queue.push(tree[node.right]);
-      }
-      console.log(node, `nó: ${i}`);
-      console.log(queue, `fila: ${i}`);
     }
   }
-
-  return null;
 }
 
 //Busca em profundidade
-function dfs(tree, value) {
-  var stack = [];
+function dfs(tree, start, destiny) {
+  var stack = [],
+    viewed = [],
+    current;
 
-  stack.push(tree[0]);
+  stack.push(start);
 
-  while (stack.length !== 0) {
-    for (let i = 0; i < stack.length; i++) {
-      var node = stack.pop();
+  while (stack.length > 0) {
+    current = stack[stack.length - 1];
+    viewed.push(current);
+    var foundNodes = false;
 
-      if (node.value === value) {
-        return node;
+    for (var i = 0; i < tree.length; i++) {
+      if (tree[current][i] == 1) {
+        if (i == destiny) {
+          viewed.push(i);
+
+          return {
+            viewed: viewed,
+            start: start,
+            destiny: destiny,
+          };
+        } else {
+          if (!viewed.contains(i)) {
+            if (!stack.contains(i)) {
+              foundNodes = true;
+
+              stack.push(i);
+              break;
+            }
+          }
+        }
       }
-      if (node.right) {
-        stack.push(tree[node.right]);
-      }
-      if (node.left) {
-        stack.push(tree[node.left]);
-      }
-      console.log(node, `nó: ${i}`);
-      console.log(stack, `pilha: ${i}`);
     }
+
+    if (!foundNodes) stack.pop();
   }
-  return null;
 }
