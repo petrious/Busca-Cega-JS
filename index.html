@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto</title>
+  </head>
+  <body>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="busca.js"></script>
+    <script>
+      var tree = [
+        { value: 6, left: 1, right: 2 },
+        { value: 5, left: 3, right: 4 },
+        { value: 7, left: null, right: 5 },
+        { value: 3, left: 6, right: null },
+        { value: 4, left: null, right: null },
+        { value: 9, left: 7, right: 8 },
+        { value: 2, left: 9, right: null },
+        { value: 8, left: null, right: null },
+        { value: 10, left: null, right: null },
+        { value: 1, left: null, right: null },
+      ];
+
+      bfs(tree, 10);
+      dfs(tree, 7);
+    </script>
+  </body>
+</html>
